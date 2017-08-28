@@ -1036,7 +1036,8 @@ Note that we allow leading and trailing spaces with int or float field.
 *  <b>`record_defaults`</b>: A list of `Tensor` objects with types from: `float32`, `int32`, `int64`, `string`.
     One tensor per column of the input record, with either a
     scalar default value for that column or empty if the column is required.  
-    输入记录的每一列的一个张量，用于表示空白列的默认标量值.
+    输入记录的每一列的一个张量，用于表示空白列的默认标量值.  
+    由于数据类型必须相同的缘故,这里也间接的指示了整个csv文件默认的数据类型.
 *  <b>`field_delim`</b>: An optional `string`. Defaults to `","`.
     delimiter to separate fields in a record.分隔符来分隔记录中的字段。
 *  <b>`name`</b>: A name for the operation (optional).
