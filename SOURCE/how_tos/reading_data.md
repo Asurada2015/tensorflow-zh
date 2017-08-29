@@ -135,10 +135,10 @@ def input_pipeline(filenames, batch_size, num_epochs=None):
   filename_queue = tf.train.string_input_producer(
       filenames, num_epochs=num_epochs, shuffle=True)
   example, label = read_my_file_format(filename_queue)
-  # min_after_dequeue defines how big a buffer we will randomly sample
+  # min_after_dequeue defines how big a buffer(缓冲区) we will randomly sample(取样)
   #   from -- bigger means better shuffling but slower start up and more
   #   memory used.
-  # capacity must be larger than min_after_dequeue and the amount larger
+  # capacity(容量) must be larger than min_after_dequeue and the amount larger
   #   determines the maximum we will prefetch.  Recommendation:
   #   min_after_dequeue + (num_threads + a small safety margin) * batch_size
   min_after_dequeue = 10000
