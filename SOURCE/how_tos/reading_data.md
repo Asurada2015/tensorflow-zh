@@ -139,7 +139,7 @@ def input_pipeline(filenames, batch_size, num_epochs=None):
   #   from -- bigger means better shuffling but slower start up and more
   #   memory used.
   # capacity(容量) must be larger than min_after_dequeue and the amount larger
-  #   determines the maximum we will prefetch.  Recommendation:
+  #   determines the maximum we will prefetch(预取).  Recommendation:
   #   min_after_dequeue + (num_threads + a small safety margin) * batch_size
   min_after_dequeue = 10000
   capacity = min_after_dequeue + 3 * batch_size
@@ -173,7 +173,7 @@ def input_pipeline(filenames, batch_size, read_threads, num_epochs=None):
 
 另一种替代方案是： 使用[`tf.train.shuffle_batch` 函数](tensorflow-zh/SOURCE/api_docs/python/io_ops.md#shuffle_batch),设置`num_threads`的值大于1。 这种方案可以保证同一时刻只在一个文件中进行读取操作(但是读取速度依然优于单线程)，而不是之前的同时读取多个文件。这种方案的优点是：
 *   避免了两个不同的线程从同一个文件中读取同一个样本。
-*   避免了过多的磁盘搜索操作。
+*   避免了过多的磁盘搜索操作
 
 你一共需要多少个读取线程呢？ 函数`tf.train.shuffle_batch*`为TensorFlow图提供了获取文件名队列中的元素个数之和的方法。 如果你有足够多的读取线程， 文件名队列中的元素个数之和应该一直是一个略高于0的数。具体可以参考[TensorBoard:可视化学习](tensorflow-zh/SOURCE/how_tos/summaries_and_tensorboard/index.md).
 

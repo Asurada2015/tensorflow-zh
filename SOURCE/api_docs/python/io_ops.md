@@ -417,7 +417,13 @@ Whether the Reader implementation can serialize its state.
 A Reader that outputs the entire contents of a file as a value.
 
 To use, enqueue filenames in a Queue.  The output of Read will
-be a filename (key) and the contents of that file (value).
+be a filename (key) and the contents of that file (value).  
+将文件的全部内容输出为值的阅读器。
+
+在队列中使用队列文件名。
+读取的输出是文件名(键)和该文件的内容(值)。即是以键值对的形式输出值
+
+请参阅ReaderBase以获得支持的方法。
 
 See ReaderBase for supported methods.
 - - -
@@ -472,7 +478,7 @@ Returns the number of work units this reader has finished processing.
 #### `tf.WholeFileReader.read(queue, name=None)` <a class="md-anchor" id="WholeFileReader.read"></a>
 
 Returns the next record (key, value pair) produced by a reader.
-
+返回一个阅读器生成的下一个记录(键值对)。
 Will dequeue a work unit from queue if necessary (e.g. when the
 Reader needs to start reading from a new file since it has
 finished with the previous file).
