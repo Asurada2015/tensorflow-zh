@@ -823,13 +823,14 @@ Any entries in `t_list` that are of type None are ignored.
 ### `tf.train.exponential_decay(learning_rate, global_step, decay_steps, decay_rate, staircase=False, name=None)` <a class="md-anchor" id="exponential_decay"></a>
 
 Applies exponential decay to the learning rate.
+退化学习率,衰减学习率,将指数衰减应用于学习速率。
 
 When training a model, it is often recommended to lower the learning rate as
 the training progresses.  This function applies an exponential decay function
 to a provided initial learning rate.  It requires a `global_step` value to
 compute the decayed learning rate.  You can just pass a TensorFlow variable
 that you increment at each training step.
-
+培训模式时，通常建议随着培训的进行，降低学习率。 该函数对提供的初始学习率应用指数衰减函数。 它需要一个在每个培训步骤增加的TensorFlow变量。“global_step”值来计算衰减的学习率。
 The function returns the decayed learning rate.  It is computed as:
 
 ```python
